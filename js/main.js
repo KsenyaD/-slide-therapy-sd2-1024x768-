@@ -1,6 +1,16 @@
 let currentHorizontalPosition = 0;
 let index = 0;
 
+
+function hidingNex() {
+    const next = document.querySelector('.next');
+    if (index > 0) {
+        next.classList.add('next_close')
+    } else {
+        next.classList.remove('next_close')
+    }
+}
+
 function updateEllipse() {
     const ellipse1 = document.getElementById("ellipse1");
     const ellipse2 = document.getElementById("ellipse2");
@@ -61,6 +71,7 @@ function updateEllipse() {
             }
         }
         updateEllipse()
+        hidingNex()
     });
     updateEllipse()
 })();
