@@ -1,0 +1,119 @@
+body {
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+}
+
+.window-one {
+    background: url("../img/background_pictures/background _pic1.jpg") no-repeat center top fixed;
+    height: 100vh;
+}
+
+
+.title__window__one {
+
+}
+
+.subtitle__window__one1 {
+
+}
+
+.subtitle__window__one2 {
+
+}
+
+.subtitle__window__one3 {
+
+}
+
+.subtitle__window__one4 {
+
+}
+
+.scroll {
+    transform: translateY(-000vh);
+    transition-duration: 1000ms;
+}
+
+.window-two {
+
+    height: 100vh;
+
+}
+
+.wrap-container {
+    height: 100vh;
+    position: relative;
+    background-color: thistle;
+}
+
+/*стили слайдера начало*/
+.slider-container {
+    top: 85%;
+    width: 50%;
+    margin: auto;
+    position: absolute;
+    transform: translate(50%, 0);
+    display: flex;
+    z-index: 1;
+}
+
+.slider {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #4CAF50;
+    cursor: pointer;
+}
+
+/*стили слайдера конец*/
+.window-tree {
+    background-color: antiquewhite;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transition-duration: 1000ms;
+}
+
+.window-four {
+    background-color: blueviolet;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform: translateX(-100vw);
+    transition-duration: 1000ms;
+}
+
+.window-five {
+    background-color: darkcyan;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform: translateX(-100vw);
+    transition-duration: 1000ms;
+}
+
+
+
