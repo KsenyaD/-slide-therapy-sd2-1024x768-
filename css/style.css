@@ -2,9 +2,10 @@ body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
+
 /*начало стилей первое окно*/
 .window-one {
-    background: url("../img/background_pictures/background _pic1.jpg") ;
+    background: url("../img/background_pictures/background _pic1.jpg");
     background-size: cover;
     height: 100vh;
 }
@@ -15,9 +16,9 @@ body {
     color: rgb(13, 49, 156);
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
-    -webkit-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
-    -ms-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
+    -moz-transform: matrix(2.09302578296686, 0, 0, 2.09395421374965, 0, 0);
+    -webkit-transform: matrix(2.09302578296686, 0, 0, 2.09395421374965, 0, 0);
+    -ms-transform: matrix(2.09302578296686, 0, 0, 2.09395421374965, 0, 0);
     position: absolute;
     left: 260px;
     top: 165px;
@@ -29,9 +30,9 @@ body {
     color: rgb(13, 49, 156);
     line-height: 1.2;
     text-align: left;
-    -moz-transform: matrix( 2.29329922174313,0,0,2.29139022272731,0,0);
-    -webkit-transform: matrix( 2.29329922174313,0,0,2.29139022272731,0,0);
-    -ms-transform: matrix( 2.29329922174313,0,0,2.29139022272731,0,0);
+    -moz-transform: matrix(2.29329922174313, 0, 0, 2.29139022272731, 0, 0);
+    -webkit-transform: matrix(2.29329922174313, 0, 0, 2.29139022272731, 0, 0);
+    -ms-transform: matrix(2.29329922174313, 0, 0, 2.29139022272731, 0, 0);
     position: absolute;
 }
 
@@ -60,6 +61,7 @@ body {
     left: 96%;
     margin-top: 360px;
     position: absolute;
+    z-index: 1;
 }
 
 
@@ -75,55 +77,8 @@ body {
     background-color: rgb(247, 139, 31);
 }
 
-/*
-.pagination {
-    position: absolute;
-
-    display: flex;
-}*/
-/*
-.Эллипс_4_копия_2 {
-    border-radius: 50%;
-    background-color: rgb(247, 139, 31);
-    position: absolute;
-    left: 1967px;
-    top: 705px;
-    width: 27px;
-    height: 26px;
-    z-index: 255;
-}
-.white_ellips {
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 2048px;
-    height: 1536px;
-    z-index: 253;
-}
-.Эллипс_4_копия_copy {
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    left: 1967px;
-    top: 786px;
-    width: 27px;
-    height: 27px;
-    z-index: 252;
-}
-.Эллипс_4_копия {
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    position: absolute;
-    left: 1967px;
-    top: 745px;
-    width: 27px;
-    height: 27px;
-    z-index: 251;
-}
-
-*/
 .next {
-    background: url("../img/background_pictures/next.png") ;
+    background: url("../img/background_pictures/next.png");
     background-size: cover;
     position: absolute;
     left: 0px;
@@ -138,24 +93,47 @@ body {
 }
 
 /*конец стилей первое окно*/
+/*начало стилей второе окно*/
 .window-two {
     height: 100vh;
-
+    background: url("../img/background_pictures/background _pic2.jpg");
+    background-size: cover;
 }
+
+.container__window-two {
+    height: 100vh;
+    background: url("../img/background_pictures/bk2w.png");
+    background-size: cover;
+}
+
+.title__window-two {
+    font-size: 48px;
+    font-family: "Gotham Pro";
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-align: center;
+    /*-moz-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
+    -webkit-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
+    -ms-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);*/
+    padding-top: 260px;
+}
+
+/*конец стилей второе окно*/
 
 .wrap-container {
     height: 100vh;
     position: relative;
-    background-color: thistle;
+    background: url("../img/background_pictures/background _pic3.jpg");
+    background-size: cover;
 }
 
 /*стили слайдера начало*/
 .slider-container {
-    top: 85%;
-    width: 50%;
+    top: 88%;
+    width: 614px;
     margin: auto;
     position: absolute;
-    transform: translate(50%, 0);
+    transform: translate(32%, 0);
     display: flex;
     z-index: 1;
 }
@@ -163,10 +141,10 @@ body {
 .slider {
     -webkit-appearance: none;
     width: 100%;
-    height: 25px;
-    background: #d3d3d3;
+    height: 12px;
+    background: #ccffff;
     outline: none;
-    opacity: 0.7;
+    opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
@@ -178,28 +156,50 @@ body {
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-    cursor: pointer;
+    width: 43px;
+    height: 55px;
+    background: url("../img/background_pictures/sliger_img.png");
+    background-size : cover;
 }
 
 .slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    background: #4CAF50;
-    cursor: pointer;
+    width: 43px;
+    height: 55px;
+    background: url("../img/background_pictures/sliger_img.png");
+    background-size: cover;
 }
 
 /*стили слайдера конец*/
+/*стили третье окно начало*/
+
 .window-tree {
-    background-color: antiquewhite;
     height: 100vh;
     width: 100vw;
     position: absolute;
     transition-duration: 1000ms;
+    background: url("../img/background_pictures/bk3w_ice.png");
+    background-size: cover;
 }
 
+.title__window-tree {
+    font-size: 30px;
+    font-family: "Gotham Pro";
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-align: left;
+    padding-left: 82px;
+    padding-top: 109px;
+}
+
+.info__window-tree {
+    height: 460px;
+    margin-left: 70px;
+    position: absolute;
+}
+
+/*стили третье окно конец*/
+
+/*стили четвертое окно начало*/
 .window-four {
     background-color: blueviolet;
     height: 100vh;
@@ -209,6 +209,8 @@ body {
     transition-duration: 1000ms;
 }
 
+/*стили четвертое окно конец*/
+/*стили пятое окно начало*/
 .window-five {
     background-color: darkcyan;
     height: 100vh;
@@ -218,5 +220,5 @@ body {
     transition-duration: 1000ms;
 }
 
-
+/*стили пятое окно конец*/
 
