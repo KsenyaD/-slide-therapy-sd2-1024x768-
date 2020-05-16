@@ -1,46 +1,68 @@
-let currentSlidePosition = 0;
+let currentHorizontalPosition = 0;
+let index = 0;
+
+function updateEllipse() {
+    const ellipse1 = document.getElementById("ellipse1");
+    const ellipse2 = document.getElementById("ellipse2");
+    const ellipse3 = document.getElementById("ellipse3");
+    switch (index) {
+        case 0 : {
+            ellipse1.classList.add('ellipse-orange');
+            ellipse2.classList.remove('ellipse-orange');
+            break
+        }
+        case 1: {
+            ellipse2.classList.add('ellipse-orange');
+            ellipse1.classList.remove('ellipse-orange');
+            ellipse3.classList.remove('ellipse-orange');
+            break
+        }
+        case 2: {
+            ellipse3.classList.add('ellipse-orange');
+            ellipse2.classList.remove('ellipse-orange');
+            break
+        }
+    }
+}
 
 (function scrollWindowVertical() {
-    let index = 0;
-    let y = undefined;
+    let mouseTouchY = undefined;
     const scroll = document.querySelector('.scroll');
 
     window.addEventListener('touchstart', e => {
         let touchObj = e.changedTouches[0]; // первая точка прикосновения
-        if (currentSlidePosition === 0) {
-            y = parseInt(touchObj.clientY);
+        if (currentHorizontalPosition === 0) {
+            mouseTouchY = parseInt(touchObj.clientY);
         }
     });
 
     window.addEventListener('touchend', e => {
-        y = undefined;
+        mouseTouchY = undefined;
     });
 
     window.addEventListener('touchmove', e => {
-        if (y === undefined) {
+        if (mouseTouchY === undefined) {
             return;
         }
         let touchObj = e.changedTouches[0];
-        const diff = y - parseInt(touchObj.clientY);
+        const diff = mouseTouchY - parseInt(touchObj.clientY);
 
         if (diff > 80) {
             if (index < 2) {
                 index++;
                 scroll.style.transform = `translateY(-${index}00vh)`;
-                y = undefined;
+                mouseTouchY = undefined;
             }
         } else if (diff < -80) {
             if (index > 0) {
                 index--;
                 scroll.style.transform = `translateY(-${index}00vh)`;
-                y = undefined;
+                mouseTouchY = undefined;
             }
         }
+        updateEllipse()
     });
-
-    const ellipse = document.querySelector('.ellipse');
-    ellipse.classList.add('ellipse-orange')
-
+    updateEllipse()
 })();
 
 function updateWindows(index) {
@@ -76,12 +98,12 @@ function scrollWindowHorizontal() {
     let valueSlider = slider.value;
 
     if (valueSlider > 80) {
-        currentSlidePosition = 0;
+        currentHorizontalPosition = 0;
     } else if (valueSlider <= 80 && valueSlider > 30) {
-        currentSlidePosition = 1;
+        currentHorizontalPosition = 1;
     } else {
-        currentSlidePosition = 2;
+        currentHorizontalPosition = 2;
     }
 
-    updateWindows(currentSlidePosition)
+    updateWindows(currentHorizontalPosition)
 }
