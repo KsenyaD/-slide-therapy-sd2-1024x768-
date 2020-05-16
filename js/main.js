@@ -5,21 +5,23 @@ let currentSlidePosition = 0;
     let y = undefined;
     const scroll = document.querySelector('.scroll');
 
-    window.addEventListener('mousedown', e => {
+    window.addEventListener('touchstart', e => {
+        let touchObj = e.changedTouches[0]; // первая точка прикосновения
         if (currentSlidePosition === 0) {
-            y = e.offsetY;
+            y = parseInt(touchObj.clientY);
         }
     });
 
-    window.addEventListener('mouseup', e => {
+    window.addEventListener('touchend', e => {
         y = undefined;
     });
 
-    window.addEventListener('mousemove', e => {
+    window.addEventListener('touchmove', e => {
         if (y === undefined) {
             return;
         }
-        const diff = y - e.offsetY;
+        let touchObj = e.changedTouches[0];
+        const diff = y - parseInt(touchObj.clientY);
 
         if (diff > 80) {
             if (index < 2) {
@@ -34,9 +36,12 @@ let currentSlidePosition = 0;
                 y = undefined;
             }
         }
-    })
-})();
+    });
 
+    const ellipse = document.querySelector('.ellipse');
+    ellipse.classList.add('ellipse-orange')
+
+})();
 
 function updateWindows(index) {
     const windowTree = document.querySelector('.window-tree');

@@ -2,31 +2,134 @@ body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
-
+/*начало стилей первое окно*/
 .window-one {
-    background: url("../img/background_pictures/background _pic1.jpg") no-repeat center top fixed;
+    background: url("../img/background_pictures/background _pic1.jpg") ;
+    background-size: cover;
     height: 100vh;
 }
 
-
 .title__window__one {
+    font-size: 23px;
+    font-family: "Gotham Pro";
+    color: rgb(13, 49, 156);
+    line-height: 1.2;
+    text-align: left;
+    -moz-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
+    -webkit-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
+    -ms-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
+    position: absolute;
+    left: 260px;
+    top: 165px;
+}
 
+.subtitle__window__one1, .subtitle__window__one2, .subtitle__window__one3, .subtitle__window__one4 {
+    font-size: 8px;
+    font-family: "Lato";
+    color: rgb(13, 49, 156);
+    line-height: 1.2;
+    text-align: left;
+    -moz-transform: matrix( 2.29329922174313,0,0,2.29139022272731,0,0);
+    -webkit-transform: matrix( 2.29329922174313,0,0,2.29139022272731,0,0);
+    -ms-transform: matrix( 2.29329922174313,0,0,2.29139022272731,0,0);
+    position: absolute;
 }
 
 .subtitle__window__one1 {
-
+    left: 665px;
+    top: 280px;
 }
 
 .subtitle__window__one2 {
-
+    left: 261px;
+    top: 402px;
 }
 
 .subtitle__window__one3 {
-
+    left: 418px;
+    top: 514px;
 }
 
 .subtitle__window__one4 {
+    left: 817px;
+    top: 494px;
+    z-index: 32;
+}
 
+.pagination {
+    left: 96%;
+    margin-top: 360px;
+    position: absolute;
+}
+
+
+.ellipse {
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    width: 14px;
+    height: 14px;
+    margin-bottom: 7px;
+}
+
+.ellipse-orange {
+    background-color: rgb(247, 139, 31);
+}
+
+/*
+.pagination {
+    position: absolute;
+
+    display: flex;
+}*/
+/*
+.Эллипс_4_копия_2 {
+    border-radius: 50%;
+    background-color: rgb(247, 139, 31);
+    position: absolute;
+    left: 1967px;
+    top: 705px;
+    width: 27px;
+    height: 26px;
+    z-index: 255;
+}
+.white_ellips {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 2048px;
+    height: 1536px;
+    z-index: 253;
+}
+.Эллипс_4_копия_copy {
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 1967px;
+    top: 786px;
+    width: 27px;
+    height: 27px;
+    z-index: 252;
+}
+.Эллипс_4_копия {
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    left: 1967px;
+    top: 745px;
+    width: 27px;
+    height: 27px;
+    z-index: 251;
+}
+
+*/
+.next {
+    background: url("../img/background_pictures/next.png") ;
+    background-size: cover;
+    position: absolute;
+    left: 0px;
+    top: 28.2%;
+    width: 1024px;
+    height: 120px;
 }
 
 .scroll {
@@ -34,8 +137,8 @@ body {
     transition-duration: 1000ms;
 }
 
+/*конец стилей первое окно*/
 .window-two {
-
     height: 100vh;
 
 }
