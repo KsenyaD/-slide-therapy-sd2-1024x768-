@@ -136,8 +136,8 @@ body {
     margin: auto;
     position: absolute;
     transform: translate(32%, 0);
-    display: flex;
     z-index: 1;
+    display: grid;
 }
 
 .slider {
@@ -153,18 +153,7 @@ body {
 .slider:hover {
     opacity: 1;
 }
-.slider::-moz-range-progress {
-    background-color: #43e5f7;
-}
-.slider::-moz-range-track {
-    background-color: #9a905d;
-}
-.slider::-ms-fill-lower {
-    background-color: #43e5f7;
-}
-.slider::-ms-fill-upper {
-    background-color: #9a905d;
-}
+
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
@@ -179,6 +168,24 @@ body {
     height: 55px;
     background: url("../img/background_pictures/sliger_img.png");
     background-size: cover;
+}
+.slider__date {
+    padding-top: 25px;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+    width: 570px;
+}
+.slider__date p {
+    font-size: 19px;
+    font-family: "Gotham Pro";
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-align: left;
+   /* -moz-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
+    -webkit-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
+    -ms-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
+*/
 }
 
 /*стили слайдера конец*/
@@ -203,33 +210,65 @@ body {
     padding-top: 109px;
 }
 
-.info__window-tree {
+.info-img__window-tree {
     height: 460px;
     margin-left: 70px;
     position: absolute;
 }
-
 /*стили третье окно конец*/
 
 /*стили четвертое окно начало*/
 .window-four {
-    background-color: blueviolet;
     height: 100vh;
     width: 100vw;
     position: absolute;
     transform: translateX(-100vw);
     transition-duration: 1000ms;
+    background: url("../img/background_pictures/bk4w_ice.png") no-repeat;
+}
+
+.title__window-four {
+    font-size: 30px;
+    font-family: "Gotham Pro";
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-align: left;
+    margin-left: 83px;
+    margin-top: 109px;
+}
+
+.info-img__window-four {
+    position: absolute;
+    height: 471px;
+    width: 755px;
+    margin: 10px 0 0 150px;
 }
 
 /*стили четвертое окно конец*/
 /*стили пятое окно начало*/
 .window-five {
-    background-color: darkcyan;
+    background: url("../img/background_pictures/bk5w_ice.png") no-repeat;
     height: 100vh;
     width: 100vw;
     position: absolute;
     transform: translateX(-100vw);
     transition-duration: 1000ms;
+}
+
+.title__window-five {
+    margin-left: 95px;
+    margin-top: 150px;
+    font-size: 30px;
+    font-family: "Gotham Pro";
+    color: rgb(255, 255, 255);
+    line-height: 1.2;
+    text-align: left;
+}
+.info-img__window-five {
+    position: absolute;
+    height: 330px;
+    width: 577px;
+    margin: 25px 0 0 243px;
 }
 
 /*стили пятое окно конец*/
