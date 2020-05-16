@@ -125,6 +125,8 @@ body {
     position: relative;
     background: url("../img/background_pictures/background _pic3.jpg");
     background-size: cover;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 
 /*стили слайдера начало*/
@@ -142,9 +144,8 @@ body {
     -webkit-appearance: none;
     width: 100%;
     height: 12px;
-    background: #ccffff;
+    background: url("../img/background_pictures/slider_bg.png");
     outline: none;
-    opacity: 1;
     -webkit-transition: .2s;
     transition: opacity .2s;
 }
@@ -152,18 +153,29 @@ body {
 .slider:hover {
     opacity: 1;
 }
-
+.slider::-moz-range-progress {
+    background-color: #43e5f7;
+}
+.slider::-moz-range-track {
+    background-color: #9a905d;
+}
+.slider::-ms-fill-lower {
+    background-color: #43e5f7;
+}
+.slider::-ms-fill-upper {
+    background-color: #9a905d;
+}
 .slider::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
     width: 43px;
     height: 55px;
-    background: url("../img/background_pictures/sliger_img.png");
+    background: url("../img/background_pictures/sliger_img.png") repeat;
     background-size : cover;
 }
 
 .slider::-moz-range-thumb {
-    width: 43px;
+    width: 53px;
     height: 55px;
     background: url("../img/background_pictures/sliger_img.png");
     background-size: cover;
