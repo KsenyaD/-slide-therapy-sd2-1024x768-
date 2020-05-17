@@ -26,21 +26,17 @@
     url('../font/GothamPro-Light.woff') format('woff') /* Modern Browsers */
 }
 
-html {
+html, body {
     box-sizing: border-box;
-    background: navy;
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    background: blue;
+    overflow: hidden;
+    position: relative;
+    height: 100%;
 }
 *, *::before, *::after{
     box-sizing: inherit;
 }
 
-body {
-    background: blue;
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-}
 /*начало стилей первое окно*/
 .window-one {
     background: url("../img/background_pictures/background_pic1.jpg");
@@ -274,8 +270,7 @@ body {
     position: relative;
     background: url("../img/background_pictures/background _pic3.jpg");
     background-size: cover;
-    overflow-y: hidden; /* Hide vertical scrollbar */
-    overflow-x: hidden; /* Hide horizontal scrollbar */
+    overflow: hidden;
 }
 
 /*стили слайдера начало*/
