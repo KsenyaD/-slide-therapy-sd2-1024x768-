@@ -1,11 +1,54 @@
-let currentHorizontalPosition = 0;
-let currentVerticalPosition = 0;
+let currentHorizontalIndex = 0;
+let currentVerticalIndex = 0;
 let mouseTouchStartY = undefined;
 let horizontalScrollBlocked = false;
 
-function hidingNex() {
+(function addWindowListeners() {
+    window.addEventListener('touchstart', e => {
+        const touchObj = e.changedTouches[0];
+        if (currentHorizontalIndex === 0 || currentVerticalIndex !== 2) {
+            mouseTouchStartY = parseInt(touchObj.clientY);
+        }
+    });
+
+    window.addEventListener('touchend', e => {
+        mouseTouchStartY = undefined;
+    });
+
+    window.addEventListener('touchmove', e => {
+        if (mouseTouchStartY === undefined) {
+            return;
+        }
+        const touchObj = e.changedTouches[0];
+        const diff = mouseTouchStartY - parseInt(touchObj.clientY);
+        updateVerticalIndex(diff);
+        moveWindowOneForParallaxEffect();
+        updateEllipse();
+        hideNext(currentVerticalIndex > 0);
+    });
+    updateEllipse();
+})();
+
+function updateVerticalIndex(diff) {
+    const scroll = document.querySelector('.scroll');
+    if (diff > 80) {
+        if (currentVerticalIndex < 2) {
+            currentVerticalIndex++;
+            scroll.style.transform = `translateY(-${currentVerticalIndex}00vh)`;
+            mouseTouchStartY = undefined;
+        }
+    } else if (diff < -80) {
+        if (currentVerticalIndex > 0) {
+            currentVerticalIndex--;
+            scroll.style.transform = `translateY(-${currentVerticalIndex}00vh)`;
+            mouseTouchStartY = undefined;
+        }
+    }
+}
+
+function hideNext(hide) {
     const next = document.querySelector('.next');
-    if (currentVerticalPosition > 0) {
+    if (hide) {
         next.classList.add('next_close')
     } else {
         next.classList.remove('next_close')
@@ -13,10 +56,10 @@ function hidingNex() {
 }
 
 function updateEllipse() {
-    const ellipse1 = document.getElementById("ellipse1");
-    const ellipse2 = document.getElementById("ellipse2");
-    const ellipse3 = document.getElementById("ellipse3");
-    switch (currentVerticalPosition) {
+    const ellipse1 = document.getElementById('ellipse1');
+    const ellipse2 = document.getElementById('ellipse2');
+    const ellipse3 = document.getElementById('ellipse3');
+    switch (currentVerticalIndex) {
         case 0 : {
             ellipse1.classList.add('ellipse-orange');
             ellipse2.classList.remove('ellipse-orange');
@@ -36,87 +79,44 @@ function updateEllipse() {
     }
 }
 
-
-function parallaxEffect() {
+function moveWindowOneForParallaxEffect() {
     const contentWindowOne = document.querySelector('.content__window-one');
-    if (currentVerticalPosition === 1) {
+    if (currentVerticalIndex === 1) {
         contentWindowOne.style.transform = `translateY(-010vh)`;
     } else {
         contentWindowOne.style.transform = `translateY(-000vh)`;
     }
 }
 
-(function scrollWindowVertical() {
-
-    const scroll = document.querySelector('.scroll');
-
-    window.addEventListener('touchstart', e => {
-        let touchObj = e.changedTouches[0]; // первая точка прикосновения
-        if (currentHorizontalPosition === 0 || currentVerticalPosition !== 2) {
-            mouseTouchStartY = parseInt(touchObj.clientY);
-        }
-    });
-
-    window.addEventListener('touchend', e => {
-        mouseTouchStartY = undefined;
-    });
-
-    window.addEventListener('touchmove', e => {
-        if (mouseTouchStartY === undefined) {
-            return;
-        }
-        let touchObj = e.changedTouches[0];
-        const diff = mouseTouchStartY - parseInt(touchObj.clientY);
-
-        if (diff > 80) {
-            if (currentVerticalPosition < 2) {
-                currentVerticalPosition++;
-                scroll.style.transform = `translateY(-${currentVerticalPosition}00vh)`;
-                mouseTouchStartY = undefined;
-            }
-        } else if (diff < -80) {
-            if (currentVerticalPosition > 0) {
-                currentVerticalPosition--;
-                scroll.style.transform = `translateY(-${currentVerticalPosition}00vh)`;
-                mouseTouchStartY = undefined;
-            }
-        }
-        parallaxEffect();
-        updateEllipse();
-        hidingNex();
-    });
-    updateEllipse();
-})();
-
 function updateHorizontalPosition(index) {
-    blockHorizontalScroll();
+    blockHorizontalScrollOnTimeout();
     const windowTree = document.querySelector('.window-tree');
     const windowFour = document.querySelector('.window-four');
     const windowFive = document.querySelector('.window-five');
 
     switch (index) {
         case 0: {
-            windowTree.style.transform = "translateX(000px)";
-            windowFour.style.transform = "translateX(-100vw)";
-            windowFive.style.transform = "translateX(-100vw)";
+            windowTree.style.transform = 'translateX(000px)';
+            windowFour.style.transform = 'translateX(-100vw)';
+            windowFive.style.transform = 'translateX(-100vw)';
             break
         }
         case 1: {
-            windowTree.style.transform = "translateX(100vw)";
-            windowFour.style.transform = "translateX(000vw)";
-            windowFive.style.transform = "translateX(-100vw)";
+            windowTree.style.transform = 'translateX(100vw)';
+            windowFour.style.transform = 'translateX(000vw)';
+            windowFive.style.transform = 'translateX(-100vw)';
             break
         }
         case 2: {
-            windowTree.style.transform = "translateX(100vw)";
-            windowFour.style.transform = "translateX(100vw)";
-            windowFive.style.transform = "translateX(000vw)";
+            windowTree.style.transform = 'translateX(100vw)';
+            windowFour.style.transform = 'translateX(100vw)';
+            windowFive.style.transform = 'translateX(000vw)';
             break
         }
     }
 }
 
-function blockHorizontalScroll() {
+function blockHorizontalScrollOnTimeout() {
     horizontalScrollBlocked = true;
     setTimeout(() => {
         horizontalScrollBlocked = false;
@@ -126,29 +126,27 @@ function blockHorizontalScroll() {
 
 function scrollWindowHorizontal() {
     mouseTouchStartY = undefined;
-
     if (horizontalScrollBlocked) {
         return;
     }
 
     const slider = document.querySelector('.slider');
-    const horizontalPosition = currentHorizontalPosition;
-    let valueSlider = slider.value;
+    const horizontalPosition = currentHorizontalIndex;
+    const valueSlider = slider.value;
 
     if (valueSlider > 80) {
-        currentHorizontalPosition = 0;
+        currentHorizontalIndex = 0;
     } else if (valueSlider <= 80 && valueSlider > 30) {
-        currentHorizontalPosition = 1;
+        currentHorizontalIndex = 1;
     } else {
-        currentHorizontalPosition = 2;
+        currentHorizontalIndex = 2;
     }
 
-    if (Math.abs(currentHorizontalPosition - horizontalPosition) === 2) {
-        currentHorizontalPosition = 1
+    if (Math.abs(currentHorizontalIndex - horizontalPosition) === 2) {
+        currentHorizontalIndex = 1
     }
 
-    if (currentHorizontalPosition !== horizontalPosition) {
-        updateHorizontalPosition(currentHorizontalPosition)
+    if (currentHorizontalIndex !== horizontalPosition) {
+        updateHorizontalPosition(currentHorizontalIndex)
     }
-
 }
