@@ -6,6 +6,7 @@
     <title>Цель терапии СД2</title>
     <link rel="stylesheet" href="./css/reset.css">
     <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="pagination">
@@ -18,10 +19,23 @@
         <div class="content__window-one">
             <h2 class="title__window__one">Всегда ли цели терапии СД2</br>
                 на поверхности?</h2>
-            <h3 class="subtitle__window__one1">Цель по HbA1c</h3>
-            <h3 class="subtitle__window__one2">Гипогликемия</h3>
-            <h3 class="subtitle__window__one3">Осложнения СД</h3>
-            <h3 class="subtitle__window__one4">СС риски</h3>
+            <div class="wrap-subtitle1-info">
+                <span class="pulse pulse1"></span>
+                <h3 class="subtitle1__window-one">Цель по HbA1c</h3>
+            </div>
+            <div class="wrap-subtitle2-info">
+                <h3 class="subtitle2__window-one">Гипогликемия</h3>
+                <span class="pulse pulse2"></span>
+            </div>
+            <div class="wrap-subtitle3-info">
+                <h3 class="subtitle3__window-one">Осложнения СД</h3>
+                <span class="pulse pulse3"></span>
+            </div>
+            <div class="wrap-subtitle4-info">
+                <h3 class="subtitle4__window-one">СС риски</h3>
+                <span class="pulse pulse4"></span>
+            </div>
+
         </div>
         <div class="next"></div>
     </div>
@@ -31,7 +45,6 @@
                 патогенез СД2</h2>
         </div>
     </div>
-
     <div class="wrap-container">
         <div class="slider-container">
             <input type="range" min="1" max="100" value="100" class="slider" oninput="scrollWindowHorizontal()">

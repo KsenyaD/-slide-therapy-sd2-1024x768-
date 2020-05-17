@@ -1,3 +1,4 @@
+
 body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
@@ -5,9 +6,9 @@ body {
 
 /*начало стилей первое окно*/
 .window-one {
-    background: url("../img/background_pictures/background _pic1.jpg");
-    background-size: cover;
+    background: url("../img/background_pictures/background_pic1.jpg");
     height: 100vh;
+    background-size: cover;
 }
 
 .title__window__one {
@@ -24,9 +25,9 @@ body {
     top: 165px;
 }
 
-.subtitle__window__one1, .subtitle__window__one2, .subtitle__window__one3, .subtitle__window__one4 {
+.subtitle1__window-one, .subtitle2__window-one, .subtitle3__window-one, .subtitle4__window-one {
     font-size: 8px;
-    font-family: "Lato";
+    font-family: 'Lato', sans-serif Lato;
     color: rgb(13, 49, 156);
     line-height: 1.2;
     text-align: left;
@@ -35,26 +36,114 @@ body {
     -ms-transform: matrix(2.29329922174313, 0, 0, 2.29139022272731, 0, 0);
     position: absolute;
 }
+/*1 подзаголовок начало*/
 
-.subtitle__window__one1 {
-    left: 665px;
-    top: 280px;
+.wrap-subtitle1-info {
+    left: 583px;
+    top: 282px;
+    position: absolute;
+    display: flex;
+    height: 80px;
+    width: 300px;
 }
 
-.subtitle__window__one2 {
-    left: 261px;
-    top: 402px;
+.subtitle1__window-one {
+    margin-left: 80px;
+    display: inline-block;
+}
+.pulse1 {
+    width: 9px;
+    height: 9px;
+}
+/*1 подзаголовок конец*/
+
+/*2 подзаголовок начало*/
+.wrap-subtitle2-info {
+    left: 265px;
+    top: 436px;
+    position: absolute;
+    display: flex;
+}
+.subtitle2__window-one {
+    padding-bottom: 50px;
+}
+.pulse2 {
+    width: 6px;
+    height: 6px;
+    margin-left: 18px;
+}
+/*2 подзаголовок конец*/
+/*3 подзаголовок начало*/
+.wrap-subtitle3-info {
+    left: 425px;
+    top: 544px;
+    position: absolute;
+    display: flex;
+    width: 60px;
+}
+.subtitle3__window-one {
+    padding-bottom: 50px;
+}
+.pulse3 {
+    width: 3px;
+    margin-left: 60px;
+}
+/*3 подзаголовок конец*/
+/*4 подзаголовок начало*/
+.wrap-subtitle4-info {
+    left: 810px;
+    top: 525px;
+    width: 40px;
+    position: absolute;
+    display: flex;
+}
+.subtitle4__window-one {
+    padding-bottom: 40px;
+}
+.pulse4 {
+    width: 3px;
+    height: 3px;
+    margin-left: 18px;
+}
+/*4 подзаголовок конец*/
+.pulse {
+    display: block;
+    position:relative;
+    border-radius: 50%;
+    box-shadow: 0 0 0 36px rgba(224,164,98,0), 0 0 0 40px rgba(224,0,0,0);
 }
 
-.subtitle__window__one3 {
-    left: 418px;
-    top: 514px;
+.pulse:before,
+.pulse:after {
+    content:"";
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #cc9966;
+    top:-1px;
+    left:-1px;
+    right: -1px;
+    bottom: -1px;
+    background-image: -moz-radial-gradient( 50% 50%, circle closest-side, rgb(222,121,27) 80%, rgb(255,0,0) 100%);
+    background-image: -webkit-radial-gradient( 50% 50%, circle closest-side, rgb(222,121,27) 80%, rgb(255,0,0) 100%);
+    background-image: -ms-radial-gradient( 50% 50%, circle closest-side, rgb(222,121,27) 80%, rgb(255,0,0) 100%);
+    animation: pulse 2s linear infinite;
+    box-shadow: 0 0 0 1px rgba(255,0,0,1), 0 0 0 1px rgba(255,0,0,1);
 }
 
-.subtitle__window__one4 {
-    left: 817px;
-    top: 494px;
-    z-index: 32;
+.pulse:after {
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 1;
+        transform: scale(0.5);
+    }
+
+    100% {
+        opacity: 0;
+        transform: scale(4.5);
+    }
 }
 
 .pagination {
@@ -74,6 +163,7 @@ body {
 
 .ellipse-orange {
     background-color: rgb(247, 139, 31);
+    transition-duration: 900ms;
 }
 .next_close {
     opacity: 0;
@@ -93,12 +183,11 @@ body {
     transform: translateY(-000vh);
     transition-duration: 1000ms;
 }
-
 /*конец стилей первое окно*/
 /*начало стилей второе окно*/
 .window-two {
     height: 100vh;
-    background: url("../img/background_pictures/background _pic2.jpg");
+    background: url("../img/background_pictures/background_pic2.jpg");
     background-size: cover;
 }
 
