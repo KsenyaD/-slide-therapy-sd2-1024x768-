@@ -28,13 +28,16 @@
 
 html {
     box-sizing: border-box;
+    background: navy;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
 }
 *, *::before, *::after{
     box-sizing: inherit;
 }
 
-
 body {
+    background: blue;
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }

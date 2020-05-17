@@ -1,9 +1,11 @@
 let currentHorizontalPosition = 0;
-let index = 0;
+let currentVerticalPosition = 0;
+let mouseTouchStartY = undefined;
+let horizontalScrollBlocked = false;
 
 function hidingNex() {
     const next = document.querySelector('.next');
-    if (index > 0) {
+    if (currentVerticalPosition > 0) {
         next.classList.add('next_close')
     } else {
         next.classList.remove('next_close')
@@ -14,7 +16,7 @@ function updateEllipse() {
     const ellipse1 = document.getElementById("ellipse1");
     const ellipse2 = document.getElementById("ellipse2");
     const ellipse3 = document.getElementById("ellipse3");
-    switch (index) {
+    switch (currentVerticalPosition) {
         case 0 : {
             ellipse1.classList.add('ellipse-orange');
             ellipse2.classList.remove('ellipse-orange');
@@ -35,10 +37,9 @@ function updateEllipse() {
 }
 
 
-
 function parallaxEffect() {
     const contentWindowOne = document.querySelector('.content__window-one');
-    if (index === 1) {
+    if (currentVerticalPosition === 1) {
         contentWindowOne.style.transform = `translateY(-010vh)`;
     } else {
         contentWindowOne.style.transform = `translateY(-000vh)`;
@@ -46,38 +47,38 @@ function parallaxEffect() {
 }
 
 (function scrollWindowVertical() {
-    let mouseTouchY = undefined;
+
     const scroll = document.querySelector('.scroll');
 
     window.addEventListener('touchstart', e => {
         let touchObj = e.changedTouches[0]; // первая точка прикосновения
-        if (currentHorizontalPosition === 0) {
-            mouseTouchY = parseInt(touchObj.clientY);
+        if (currentHorizontalPosition === 0 || currentVerticalPosition !== 2) {
+            mouseTouchStartY = parseInt(touchObj.clientY);
         }
     });
 
     window.addEventListener('touchend', e => {
-        mouseTouchY = undefined;
+        mouseTouchStartY = undefined;
     });
 
     window.addEventListener('touchmove', e => {
-        if (mouseTouchY === undefined) {
+        if (mouseTouchStartY === undefined) {
             return;
         }
         let touchObj = e.changedTouches[0];
-        const diff = mouseTouchY - parseInt(touchObj.clientY);
+        const diff = mouseTouchStartY - parseInt(touchObj.clientY);
 
         if (diff > 80) {
-            if (index < 2) {
-                index++;
-                scroll.style.transform = `translateY(-${index}00vh)`;
-                mouseTouchY = undefined;
+            if (currentVerticalPosition < 2) {
+                currentVerticalPosition++;
+                scroll.style.transform = `translateY(-${currentVerticalPosition}00vh)`;
+                mouseTouchStartY = undefined;
             }
         } else if (diff < -80) {
-            if (index > 0) {
-                index--;
-                scroll.style.transform = `translateY(-${index}00vh)`;
-                mouseTouchY = undefined;
+            if (currentVerticalPosition > 0) {
+                currentVerticalPosition--;
+                scroll.style.transform = `translateY(-${currentVerticalPosition}00vh)`;
+                mouseTouchStartY = undefined;
             }
         }
         parallaxEffect();
@@ -87,7 +88,8 @@ function parallaxEffect() {
     updateEllipse();
 })();
 
-function updateWindows(index) {
+function updateHorizontalPosition(index) {
+    blockHorizontalScroll();
     const windowTree = document.querySelector('.window-tree');
     const windowFour = document.querySelector('.window-four');
     const windowFive = document.querySelector('.window-five');
@@ -114,9 +116,23 @@ function updateWindows(index) {
     }
 }
 
+function blockHorizontalScroll() {
+    horizontalScrollBlocked = true;
+    setTimeout(() => {
+        horizontalScrollBlocked = false;
+        scrollWindowHorizontal()
+    }, 1000);
+}
+
 function scrollWindowHorizontal() {
+    mouseTouchStartY = undefined;
+
+    if (horizontalScrollBlocked) {
+        return;
+    }
 
     const slider = document.querySelector('.slider');
+    const horizontalPosition = currentHorizontalPosition;
     let valueSlider = slider.value;
 
     if (valueSlider > 80) {
@@ -126,5 +142,13 @@ function scrollWindowHorizontal() {
     } else {
         currentHorizontalPosition = 2;
     }
-    updateWindows(currentHorizontalPosition)
+
+    if (Math.abs(currentHorizontalPosition - horizontalPosition) === 2) {
+        currentHorizontalPosition = 1
+    }
+
+    if (currentHorizontalPosition !== horizontalPosition) {
+        updateHorizontalPosition(currentHorizontalPosition)
+    }
+
 }
