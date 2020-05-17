@@ -45,7 +45,12 @@ body {
     background-size: cover;
 }
 
-.title__window__one {
+.content__window-one {
+    transform: translateY(-000vh);
+    transition-duration: 1500ms;
+}
+
+.title__window-one {
     font-size: 23px;
     font-family: "Gotham Pro", sans-serif;
     font-weight: 400;
@@ -116,6 +121,7 @@ body {
 }
 
 /*2 подзаголовок конец*/
+
 /*3 подзаголовок начало*/
 .wrap-subtitle3-info {
     left: 425px;
@@ -227,7 +233,7 @@ body {
     top: 28.2%;
     width: 1024px;
     height: 120px;
-    transition-duration: 300ms;
+    transition-duration: 2000ms;
 }
 
 .scroll {
@@ -256,14 +262,10 @@ body {
     color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: center;
-    /*-moz-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
-    -webkit-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);
-    -ms-transform: matrix( 2.09302578296686,0,0,2.09395421374965,0,0);*/
     padding-top: 260px;
 }
 
 /*конец стилей второе окно*/
-
 .wrap-container {
     height: 100vh;
     position: relative;
@@ -329,13 +331,9 @@ body {
     color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: left;
-    /* -moz-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
-     -webkit-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
-     -ms-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
- */
 }
-
 /*стили слайдера конец*/
+
 /*стили третье окно начало*/
 
 .window-tree {
@@ -363,7 +361,6 @@ body {
     margin-left: 70px;
     position: absolute;
 }
-
 /*стили третье окно конец*/
 
 /*стили четвертое окно начало*/
@@ -393,8 +390,8 @@ body {
     width: 755px;
     margin: 10px 0 0 150px;
 }
-
 /*стили четвертое окно конец*/
+
 /*стили пятое окно начало*/
 .window-five {
     background: url("../img/background_pictures/bk5w_ice.png") no-repeat;

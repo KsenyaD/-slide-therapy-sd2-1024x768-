@@ -1,7 +1,6 @@
 let currentHorizontalPosition = 0;
 let index = 0;
 
-
 function hidingNex() {
     const next = document.querySelector('.next');
     if (index > 0) {
@@ -32,6 +31,17 @@ function updateEllipse() {
             ellipse2.classList.remove('ellipse-orange');
             break
         }
+    }
+}
+
+
+
+function parallaxEffect() {
+    const contentWindowOne = document.querySelector('.content__window-one');
+    if (index === 1) {
+        contentWindowOne.style.transform = `translateY(-010vh)`;
+    } else {
+        contentWindowOne.style.transform = `translateY(-000vh)`;
     }
 }
 
@@ -70,10 +80,11 @@ function updateEllipse() {
                 mouseTouchY = undefined;
             }
         }
-        updateEllipse()
-        hidingNex()
+        parallaxEffect();
+        updateEllipse();
+        hidingNex();
     });
-    updateEllipse()
+    updateEllipse();
 })();
 
 function updateWindows(index) {
@@ -115,6 +126,5 @@ function scrollWindowHorizontal() {
     } else {
         currentHorizontalPosition = 2;
     }
-
     updateWindows(currentHorizontalPosition)
 }
