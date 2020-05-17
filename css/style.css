@@ -1,9 +1,43 @@
+/* lato-regular - latin-ext */
+@font-face {
+    font-family: 'Lato';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Lato Regular'), local('Lato-Regular'),
+    url('../font/lato-v16-latin-ext-regular.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../font/lato-v16-latin-ext-regular.woff') format('woff') /* Modern Browsers */
+}
+
+@font-face {
+    font-family: 'GothamPro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('GothamPro'), local('GothamPro'),
+    url('../font/GothamPro.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../font/GothamPro.woff') format('woff') /* Modern Browsers */
+}
+
+@font-face {
+    font-family: 'Gotham Pro Light';
+    font-style: normal;
+    font-weight: 300;
+    src: local('GothamPro'), local('GothamPro'),
+    url('../font/GothamPro-Light.woff2') format('woff2'), /* Super Modern Browsers */
+    url('../font/GothamPro-Light.woff') format('woff') /* Modern Browsers */
+}
+
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
 
 body {
     overflow-y: hidden; /* Hide vertical scrollbar */
     overflow-x: hidden; /* Hide horizontal scrollbar */
 }
-
 /*начало стилей первое окно*/
 .window-one {
     background: url("../img/background_pictures/background_pic1.jpg");
@@ -13,7 +47,8 @@ body {
 
 .title__window__one {
     font-size: 23px;
-    font-family: "Gotham Pro";
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 400;
     color: rgb(13, 49, 156);
     line-height: 1.2;
     text-align: left;
@@ -27,7 +62,9 @@ body {
 
 .subtitle1__window-one, .subtitle2__window-one, .subtitle3__window-one, .subtitle4__window-one {
     font-size: 8px;
-    font-family: 'Lato', sans-serif Lato;
+    font-family: 'Lato', sans-serif;
+    font-style: normal;
+    font-weight: 400;
     color: rgb(13, 49, 156);
     line-height: 1.2;
     text-align: left;
@@ -36,6 +73,7 @@ body {
     -ms-transform: matrix(2.29329922174313, 0, 0, 2.29139022272731, 0, 0);
     position: absolute;
 }
+
 /*1 подзаголовок начало*/
 
 .wrap-subtitle1-info {
@@ -51,10 +89,12 @@ body {
     margin-left: 80px;
     display: inline-block;
 }
+
 .pulse1 {
     width: 9px;
     height: 9px;
 }
+
 /*1 подзаголовок конец*/
 
 /*2 подзаголовок начало*/
@@ -64,14 +104,17 @@ body {
     position: absolute;
     display: flex;
 }
+
 .subtitle2__window-one {
     padding-bottom: 50px;
 }
+
 .pulse2 {
     width: 6px;
     height: 6px;
     margin-left: 18px;
 }
+
 /*2 подзаголовок конец*/
 /*3 подзаголовок начало*/
 .wrap-subtitle3-info {
@@ -81,13 +124,16 @@ body {
     display: flex;
     width: 60px;
 }
+
 .subtitle3__window-one {
     padding-bottom: 50px;
 }
+
 .pulse3 {
     width: 3px;
     margin-left: 60px;
 }
+
 /*3 подзаголовок конец*/
 /*4 подзаголовок начало*/
 .wrap-subtitle4-info {
@@ -97,37 +143,40 @@ body {
     position: absolute;
     display: flex;
 }
+
 .subtitle4__window-one {
     padding-bottom: 40px;
 }
+
 .pulse4 {
     width: 3px;
     height: 3px;
     margin-left: 18px;
 }
+
 /*4 подзаголовок конец*/
 .pulse {
     display: block;
-    position:relative;
+    position: relative;
     border-radius: 50%;
-    box-shadow: 0 0 0 36px rgba(224,164,98,0), 0 0 0 40px rgba(224,0,0,0);
+    box-shadow: 0 0 0 36px rgba(224, 164, 98, 0), 0 0 0 40px rgba(224, 0, 0, 0);
 }
 
 .pulse:before,
 .pulse:after {
-    content:"";
+    content: "";
     position: absolute;
     border-radius: 50%;
     border: 2px solid #cc9966;
-    top:-1px;
-    left:-1px;
+    top: -1px;
+    left: -1px;
     right: -1px;
     bottom: -1px;
-    background-image: -moz-radial-gradient( 50% 50%, circle closest-side, rgb(222,121,27) 80%, rgb(255,0,0) 100%);
-    background-image: -webkit-radial-gradient( 50% 50%, circle closest-side, rgb(222,121,27) 80%, rgb(255,0,0) 100%);
-    background-image: -ms-radial-gradient( 50% 50%, circle closest-side, rgb(222,121,27) 80%, rgb(255,0,0) 100%);
+    background-image: -moz-radial-gradient(50% 50%, circle closest-side, rgb(222, 121, 27) 80%, rgb(255, 0, 0) 100%);
+    background-image: -webkit-radial-gradient(50% 50%, circle closest-side, rgb(222, 121, 27) 80%, rgb(255, 0, 0) 100%);
+    background-image: -ms-radial-gradient(50% 50%, circle closest-side, rgb(222, 121, 27) 80%, rgb(255, 0, 0) 100%);
     animation: pulse 2s linear infinite;
-    box-shadow: 0 0 0 1px rgba(255,0,0,1), 0 0 0 1px rgba(255,0,0,1);
+    box-shadow: 0 0 0 1px rgba(255, 0, 0, 1), 0 0 0 1px rgba(255, 0, 0, 1);
 }
 
 .pulse:after {
@@ -165,9 +214,11 @@ body {
     background-color: rgb(247, 139, 31);
     transition-duration: 900ms;
 }
+
 .next_close {
     opacity: 0;
 }
+
 .next {
     background: url("../img/background_pictures/next.png");
     background-size: cover;
@@ -183,6 +234,7 @@ body {
     transform: translateY(-000vh);
     transition-duration: 1000ms;
 }
+
 /*конец стилей первое окно*/
 /*начало стилей второе окно*/
 .window-two {
@@ -199,7 +251,8 @@ body {
 
 .title__window-two {
     font-size: 48px;
-    font-family: "Gotham Pro";
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 300;
     color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: center;
@@ -251,7 +304,7 @@ body {
     width: 43px;
     height: 55px;
     background: url("../img/background_pictures/sliger_img.png") repeat;
-    background-size : cover;
+    background-size: cover;
 }
 
 .slider::-moz-range-thumb {
@@ -260,6 +313,7 @@ body {
     background: url("../img/background_pictures/sliger_img.png");
     background-size: cover;
 }
+
 .slider__date {
     padding-top: 25px;
     display: flex;
@@ -267,16 +321,18 @@ body {
     justify-content: space-between;
     width: 570px;
 }
+
 .slider__date p {
     font-size: 19px;
-    font-family: "Gotham Pro";
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 400;
     color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: left;
-   /* -moz-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
-    -webkit-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
-    -ms-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
-*/
+    /* -moz-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
+     -webkit-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
+     -ms-transform: matrix( 1.78603956947011,0,0,1.780085351686,0,0);
+ */
 }
 
 /*стили слайдера конец*/
@@ -293,7 +349,8 @@ body {
 
 .title__window-tree {
     font-size: 30px;
-    font-family: "Gotham Pro";
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 400;
     color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: left;
@@ -306,6 +363,7 @@ body {
     margin-left: 70px;
     position: absolute;
 }
+
 /*стили третье окно конец*/
 
 /*стили четвертое окно начало*/
@@ -320,7 +378,8 @@ body {
 
 .title__window-four {
     font-size: 30px;
-    font-family: "Gotham Pro";
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 400;
     color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: left;
@@ -350,11 +409,13 @@ body {
     margin-left: 95px;
     margin-top: 150px;
     font-size: 30px;
-    font-family: "Gotham Pro";
+    font-family: "Gotham Pro", sans-serif;
+    font-weight: 400;
     color: rgb(255, 255, 255);
     line-height: 1.2;
     text-align: left;
 }
+
 .info-img__window-five {
     position: absolute;
     height: 330px;
