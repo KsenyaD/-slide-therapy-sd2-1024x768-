@@ -16,9 +16,7 @@ let horizontalScrollBlocked = false;
 (function addWindowListeners() {
     window.addEventListener('touchstart', e => {
         const touchObj = e.changedTouches[0];
-        if (currentHorizontalIndex === 0 || currentVerticalIndex !== 2) {
             mouseTouchStartY = parseInt(touchObj.clientY);
-        }
     });
 
     window.addEventListener('touchend', e => {
@@ -57,9 +55,7 @@ function updateVerticalIndex(diff) {
 
 function hideNext(hide) {
     if (hide) {
-        next.classList.add('next_close')
-    } else {
-        next.classList.remove('next_close')
+        next.classList.toggle('next_close')
     }
 }
 
