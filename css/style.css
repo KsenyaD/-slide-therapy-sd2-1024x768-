@@ -158,8 +158,8 @@ html, body {
     height: 3px;
     margin-left: 18px;
 }
-
 /*4 подзаголовок конец*/
+
 .pulse {
     display: block;
     position: relative;
@@ -333,8 +333,7 @@ html, body {
 /*стили слайдера конец*/
 
 /*стили третье окно начало*/
-
-.window-tree {
+.window-three {
     height: 100vh;
     width: 100vw;
     position: absolute;
@@ -343,7 +342,7 @@ html, body {
     background-size: cover;
 }
 
-.title__window-tree {
+.title__window-three {
     font-size: 30px;
     font-family: "Gotham Pro", sans-serif;
     font-weight: 400;
@@ -354,7 +353,7 @@ html, body {
     padding-top: 109px;
 }
 
-.info-img__window-tree {
+.info-img__window-three {
     height: 460px;
     margin-left: 70px;
     position: absolute;

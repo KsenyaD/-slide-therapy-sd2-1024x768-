@@ -1,3 +1,13 @@
+const scroll = document.querySelector('.scroll');
+const ellipse1 = document.getElementById('ellipse1');
+const ellipse2 = document.getElementById('ellipse2');
+const ellipse3 = document.getElementById('ellipse3');
+const contentWindowOne = document.querySelector('.content__window-one');
+const windowThree = document.querySelector('.window-three');
+const windowFour = document.querySelector('.window-four');
+const windowFive = document.querySelector('.window-five');
+const slider = document.querySelector('.slider');
+const next = document.querySelector('.next');
 let currentHorizontalIndex = 0;
 let currentVerticalIndex = 0;
 let mouseTouchStartY = undefined;
@@ -30,7 +40,6 @@ let horizontalScrollBlocked = false;
 })();
 
 function updateVerticalIndex(diff) {
-    const scroll = document.querySelector('.scroll');
     if (diff > 80) {
         if (currentVerticalIndex < 2) {
             currentVerticalIndex++;
@@ -47,7 +56,6 @@ function updateVerticalIndex(diff) {
 }
 
 function hideNext(hide) {
-    const next = document.querySelector('.next');
     if (hide) {
         next.classList.add('next_close')
     } else {
@@ -56,31 +64,27 @@ function hideNext(hide) {
 }
 
 function updateEllipse() {
-    const ellipse1 = document.getElementById('ellipse1');
-    const ellipse2 = document.getElementById('ellipse2');
-    const ellipse3 = document.getElementById('ellipse3');
     switch (currentVerticalIndex) {
         case 0 : {
             ellipse1.classList.add('ellipse-orange');
             ellipse2.classList.remove('ellipse-orange');
-            break
+            break;
         }
         case 1: {
             ellipse2.classList.add('ellipse-orange');
             ellipse1.classList.remove('ellipse-orange');
             ellipse3.classList.remove('ellipse-orange');
-            break
+            break;
         }
         case 2: {
             ellipse3.classList.add('ellipse-orange');
             ellipse2.classList.remove('ellipse-orange');
-            break
+            break;
         }
     }
 }
 
 function moveWindowOneForParallaxEffect() {
-    const contentWindowOne = document.querySelector('.content__window-one');
     if (currentVerticalIndex === 1) {
         contentWindowOne.style.transform = `translateY(-010vh)`;
     } else {
@@ -90,28 +94,24 @@ function moveWindowOneForParallaxEffect() {
 
 function updateHorizontalPosition(index) {
     blockHorizontalScrollOnTimeout();
-    const windowTree = document.querySelector('.window-tree');
-    const windowFour = document.querySelector('.window-four');
-    const windowFive = document.querySelector('.window-five');
-
     switch (index) {
         case 0: {
-            windowTree.style.transform = 'translateX(000px)';
+            windowThree.style.transform = 'translateX(000px)';
             windowFour.style.transform = 'translateX(-100vw)';
             windowFive.style.transform = 'translateX(-100vw)';
-            break
+            break;
         }
         case 1: {
-            windowTree.style.transform = 'translateX(100vw)';
+            windowThree.style.transform = 'translateX(100vw)';
             windowFour.style.transform = 'translateX(000vw)';
             windowFive.style.transform = 'translateX(-100vw)';
-            break
+            break;
         }
         case 2: {
-            windowTree.style.transform = 'translateX(100vw)';
+            windowThree.style.transform = 'translateX(100vw)';
             windowFour.style.transform = 'translateX(100vw)';
             windowFive.style.transform = 'translateX(000vw)';
-            break
+            break;
         }
     }
 }
@@ -130,7 +130,6 @@ function scrollWindowHorizontal() {
         return;
     }
 
-    const slider = document.querySelector('.slider');
     const horizontalPosition = currentHorizontalIndex;
     const valueSlider = slider.value;
 
@@ -141,11 +140,9 @@ function scrollWindowHorizontal() {
     } else {
         currentHorizontalIndex = 2;
     }
-
     if (Math.abs(currentHorizontalIndex - horizontalPosition) === 2) {
         currentHorizontalIndex = 1
     }
-
     if (currentHorizontalIndex !== horizontalPosition) {
         updateHorizontalPosition(currentHorizontalIndex)
     }
